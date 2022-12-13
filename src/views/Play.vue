@@ -1,22 +1,24 @@
 <template>
   <div class="all">
-    <h3 id="number">Question {{rightAnswers + 1}}</h3>
-    <h3 id="category">{{category}}</h3>
-    <h3 id="difficulty" v-if="difficulty === 'easy'">⭐️</h3>
-    <h3 id="difficulty" v-if="difficulty === 'medium'">⭐️⭐️</h3>
-    <h3 id="difficulty" v-if="difficulty === 'hard'">⭐️⭐️⭐️</h3>
-    <p id="question">{{question}}</p>
-    <div id="ok" class="primeiro">
-      <button @click="answerCheck($event)" id="button" :value="allAnswers[0]">{{allAnswers[0]}}</button>
-    </div>
-    <div id="ok" class="segundo">
-      <button @click="answerCheck($event)" id="button" :value="allAnswers[1]">{{allAnswers[1]}}</button>
-    </div>
-    <div id="ok" class="terceiro">
-      <button @click="answerCheck($event)" id="button" :value="allAnswers[2]">{{allAnswers[2]}}</button>
-    </div>
-    <div id="ok" class="quarto">
-      <button @click="answerCheck($event)" id="button" :value="allAnswers[3]">{{allAnswers[3]}}</button>
+    <div class="wrap">
+      <h3 id="number">Question {{rightAnswers + 1}}</h3>
+      <h3 id="category">{{category}}</h3>
+      <h3 id="difficulty" v-if="difficulty === 'easy'">⭐️</h3>
+      <h3 id="difficulty" v-if="difficulty === 'medium'">⭐️⭐️</h3>
+      <h3 id="difficulty" v-if="difficulty === 'hard'">⭐️⭐️⭐️</h3>
+      <p id="question">{{question}}</p>
+      <div id="ok" class="primeiro">
+        <button @click="answerCheck($event)" id="button" :value="allAnswers[0]">{{allAnswers[0]}}</button>
+      </div>
+      <div id="ok" class="segundo">
+        <button @click="answerCheck($event)" id="button" :value="allAnswers[1]">{{allAnswers[1]}}</button>
+      </div>
+      <div id="ok" class="terceiro">
+        <button @click="answerCheck($event)" id="button" :value="allAnswers[2]">{{allAnswers[2]}}</button>
+      </div>
+      <div id="ok" class="quarto">
+        <button @click="answerCheck($event)" id="button" :value="allAnswers[3]">{{allAnswers[3]}}</button>
+      </div>
     </div>
   </div>
 </template>
@@ -106,24 +108,26 @@
 
 <style scoped>
 .all{
-  font-family: 'Montserrat';
-  color: #cccc;
   width: 100%;
   height: 80%;
   display: grid;
-  grid-template-columns: repeat(4,25%);
-  grid-template-rows: repeat(8,10%);
+  grid-template-columns: 25% 50% 25%;
   margin: 15vh 0;
 }
-
-#number{
+.wrap{
   grid-column: 2;
+  display: grid;
+  grid-template-rows: repeat(6, 10%);
+  grid-template-columns: 50% 50%;
+  padding: 10px;
+}
+#number{
+  grid-column: 1;
   padding: 0 10px;
- 
 }
 #category{
   grid-row: 2;
-  grid-column: 2;
+  grid-column: 1;
   padding: 0 10px;
 }
 #difficulty{
@@ -133,24 +137,24 @@
 #question{
   word-break: break-word;
   padding: 0 10px;
-  grid-row: 3/span 2;
-  grid-column: 2/span 2;
+  grid-row: 3/span 1;
+  grid-column: 1/span 2;
 }
 .primeiro{
-  grid-row: 6;
-  grid-column: 2;
+  grid-row: 5;
+  grid-column: 1;
 }
 .segundo{
-  grid-row: 6;
-  grid-column: 3;
+  grid-row: 5;
+  grid-column: 2;
 }
 .terceiro{
-  grid-row: 7;
-  grid-column: 2;;
+  grid-row: 6;
+  grid-column: 1;
 }
 .quarto{
-  grid-row: 7;
-  grid-column: 3;
+  grid-row: 6;
+  grid-column: 2;
 }
 
 #button{
@@ -166,5 +170,12 @@
 }
 #button:hover{
   background-color: rgb(124, 77, 250);
+}
+@media (min-width: 320px) and (max-width:420px){
+  .all{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    margin: 10vh 0;
+  }
 }
 </style>

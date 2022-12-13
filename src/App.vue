@@ -25,14 +25,16 @@ export default{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #cccc;
-  background-color: #303030;
+  color-scheme: light dark;
   margin: 0;
   padding: 0;
   font-family: 'Montserrat';
 }
 #title{
-  font-family: "Sofia";
+  font-family: "Montserrat";
+  font-weight: 800;
   color: rgb(124, 77, 199);
+  padding: 10px 0;
 }
 .router-div{
   display: flex;

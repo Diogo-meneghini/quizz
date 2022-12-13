@@ -55,6 +55,7 @@
   border: 2px solid;
   border-radius: 5px;
   margin-top: 15vh;
+  padding: 10px;
 }
 .tudo h2{
   margin-left: 5px;
